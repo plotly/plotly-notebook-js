@@ -1,0 +1,4 @@
+examples/
+spec/
+.eslintrc
+.npm-debug.log
