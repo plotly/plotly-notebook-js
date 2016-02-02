@@ -1,4 +1,5 @@
 examples/
+src/
 spec/
 .eslintrc
 .npm-debug.log
