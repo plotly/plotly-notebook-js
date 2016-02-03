@@ -1,3 +1,6 @@
+const CDN_SOURCE = 'https://cdn.plot.ly/plotly-latest.min.js';
+const LOCAL_SOURCE = '/node_modules/plotly-notebook-js/build/plotly.min.js';
+
 const NotebookPlot = function(data, layout, cdn) {
     if(!(this instanceof NotebookPlot)){
         return new NotebookPlot(data, layout);
@@ -7,9 +10,9 @@ const NotebookPlot = function(data, layout, cdn) {
     this.layout = layout || {};
 
     if(cdn){
-        this.scriptSource = 'https://cdn.plot.ly/plotly-latest.min.js';
+        this.scriptSource = CDN_SOURCE;
     }else{
-        this.scriptSource = require.resolve('plotly.js/dist/plotly.min.js');
+        this.scriptSource = LOCAL_SOURCE;
     }
 
     return this;
@@ -117,13 +120,13 @@ NotebookPlot.prototype.render = function() {
                 '}else if(!window.require){',
                     'var head = document.head || document.getElementsByTagName(\'head\')[0];',
                     'var s = document.createElement(\'script\');',
-                    's.src = \'' + this.scriptSource + '\';',
+                    's.src = \'' + CDN_SOURCE + '\';',
                     's.type = \'text/javascript\';',
                     's.async = false;',
                     's.onreadystatechange = s.onload = plot;',
                     'head.appendChild(s);',
                 '}else{',
-                    'require([\'' + this.scriptSource + '\'], function(Plotly){',
+                    'require([\'' + LOCAL_SOURCE + '\'], function(Plotly){',
                         'window.Plotly = Plotly;',
                         'plot();',
                     '});',

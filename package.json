@@ -9,7 +9,8 @@
     "dev": "npm run build -- -ws",
     "build": "./node_modules/.bin/babel src -d build",
     "test": "npm run build && ./node_modules/.bin/jasmine",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && npm run install-source",
+    "install-source": "curl https://cdn.plot.ly/plotly-latest.min.js > build/plotly.min.js"
   },
   "keywords": [
     "plotly",
@@ -22,9 +23,7 @@
   ],
   "author": "Plotly Inc.",
   "license": "MIT",
-  "dependencies": {
-    "plotly.js": "^1.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.4.5",
     "babel-plugin-transform-object-assign": "^6.3.13",
