@@ -1,5 +1,5 @@
 const CDN_SOURCE = 'https://cdn.plot.ly/plotly-latest.min.js';
-const LOCAL_SOURCE = '/node_modules/plotly-notebook-js/build/plotly.min.js';
+const LOCAL_SOURCE = '/notebooks/node_modules/plotly-notebook-js/build/plotly.min.js';
 
 const NotebookPlot = function(data, layout, cdn) {
     if(!(this instanceof NotebookPlot)){
