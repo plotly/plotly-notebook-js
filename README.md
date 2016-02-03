@@ -3,6 +3,8 @@
 A small package for using Plotly.js plots in Jupyter and Tonicdev notebooks. Still
 very much in beta!
 
+![Luminance of Bean](./screenshot.png)
+
 ## Jupyter Usage
 
 Using plotly with Jupyter requires installing the
@@ -20,7 +22,7 @@ Then in your new node notebook:
 ```javascript
 var Plot = require('plotly-notebook-js');
 
-var myPlot = new Plot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Jupyter!' });
+var myPlot = new Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Jupyter!' });
 
 $$html$$ = myPlot.render();
 ```
@@ -44,7 +46,7 @@ displays html when it is the output.
 ```javascript
 var Plot = require('plotly-notebook-js');
 
-var myPlot = new Plot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Tonicdev!' });
+var myPlot = new Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Tonicdev!' });
 
 myPlot.render();
 ```
@@ -59,7 +61,7 @@ a dom element to the function calls.
 Additionally, you may operate on the returned object!
 
 ```javascript
-var myPlot = new Plot([
+var myPlot = new Plot.createPlot([
   { x: [1,2,3], y: [20,30,40] },
   { x: [1,2,3], y: [10,50,20] },
   { x: [1,2,3], y: [30,10,30] }
@@ -78,8 +80,19 @@ chain your calls together!
 
 ## Reference
 
-All methods except `render` return the plot object, so calls can be chained
+All instance methods except `render` return the plot object, so calls can be chained
 together, and `plot.data` and `plot.layout` may be operated on directly.
+
+#### `Plot.createPlot(data, layout, cdn)`
+
+| Params   | Description                                                                      |
+|----------|----------------------------------------------------------------------------------|
+| `data`   | (Optional) An array of objects containing trace data                             |
+| `layout` | (Optional) A layout object                                                       |
+| `cdn`    | (Optional) A boolean value whether to use the plotly.js cdn. Defaults to `false` |
+
+Returns a plot instance with the properties `data`, `layout` and `scriptSource`.
+All of these may be mutated, and their effects seen when next `render`ed.
 
 #### `Plot#render()`
 
