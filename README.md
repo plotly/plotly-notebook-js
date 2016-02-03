@@ -22,7 +22,7 @@ Then in your new node notebook:
 ```javascript
 var Plot = require('plotly-notebook-js');
 
-var myPlot = new Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Jupyter!' });
+var myPlot = Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Jupyter!' });
 
 $$html$$ = myPlot.render();
 ```
@@ -46,7 +46,7 @@ displays html when it is the output.
 ```javascript
 var Plot = require('plotly-notebook-js');
 
-var myPlot = new Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Tonicdev!' });
+var myPlot = Plot.createPlot([{ x: [1,2,3], y: [3,4,5] }], { title: 'Plotly in Tonicdev!' });
 
 myPlot.render();
 ```
@@ -61,7 +61,7 @@ a dom element to the function calls.
 Additionally, you may operate on the returned object!
 
 ```javascript
-var myPlot = new Plot.createPlot([
+var myPlot = Plot.createPlot([
   { x: [1,2,3], y: [20,30,40] },
   { x: [1,2,3], y: [10,50,20] },
   { x: [1,2,3], y: [30,10,30] }

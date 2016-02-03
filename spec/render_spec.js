@@ -3,7 +3,7 @@ const Plot = require('../build');
 describe('The render function', function() {
 
     it('should output the correct html', function() {
-        const plot = new Plot.createPlot([{ x: [1,2,3], y: [2,3,4] }], { title: 'test' });
+        const plot = Plot.createPlot([{ x: [1,2,3], y: [2,3,4] }], { title: 'test' });
 
         const expected = [
             '<div class=\'plotly-plot\'>',

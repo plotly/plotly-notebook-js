@@ -2,7 +2,7 @@ const Plot = require('../build');
 
 describe('The addTraces function', function() {
 
-    var plot = new Plot.createPlot();
+    var plot = Plot.createPlot();
 
     afterEach(function() {
         plot.data = [];

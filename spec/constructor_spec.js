@@ -10,7 +10,7 @@ describe('The constructor', function() {
     });
 
     it('should accept zero arguments', function() {
-        const plot = new Plot.createPlot();
+        const plot = Plot.createPlot();
 
         expect(plot.data).toEqual([]);
         expect(plot.layout).toEqual({});

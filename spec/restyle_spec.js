@@ -8,7 +8,7 @@ describe('The restyle function', function() {
           { x: [1,2,3], y: [1,5,3] }
         ],
         layout = {},
-        plot = new Plot.createPlot(data, layout);
+        plot = Plot.createPlot(data, layout);
 
     it('should update all traces when only one argument', function() {
         plot.restyle({ test: 'added', x: 'changed' });
