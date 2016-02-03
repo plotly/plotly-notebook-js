@@ -1,11 +1,16 @@
-const NotebookPlot = function(data, layout) {
+const NotebookPlot = function(data, layout, cdn) {
     if(!(this instanceof NotebookPlot)){
         return new NotebookPlot(data, layout);
     }
 
     this.data = data || [];
     this.layout = layout || {};
-    this.scriptSource = 'https://cdn.plot.ly/plotly-latest.min.js';
+
+    if(cdn){
+        this.scriptSource = 'https://cdn.plot.ly/plotly-latest.min.js';
+    }else{
+        this.scriptSource = require.resolve('plotly.js/dist/plotly.min.js');
+    }
 
     return this;
 };
@@ -131,4 +136,6 @@ NotebookPlot.prototype.render = function() {
 };
 
 
-module.exports = NotebookPlot;
+module.exports = {
+    createPlot: NotebookPlot
+};
