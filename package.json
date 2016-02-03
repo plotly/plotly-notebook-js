@@ -23,6 +23,7 @@
   "author": "Plotly Inc.",
   "license": "MIT",
   "dependencies": {
+    "plotly.js": "^1.5.1"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
