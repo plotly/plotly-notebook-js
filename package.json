@@ -1,6 +1,6 @@
 {
   "name": "plotly-notebook-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Make plotly graphs in jupyter and tonicdev notebooks.",
   "bugs": "https://github.com/plotly/plotly-notebook-js/issues",
   "repository": "https://github.com/plotly/plotly-notebook-js.git",
