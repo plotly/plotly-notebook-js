@@ -1,9 +1,11 @@
-const NotebookPlot = require('../build');
+const Plot = require('../build');
 
 describe('The render function', function() {
 
     it('should output the correct html', function() {
-        const plot = new NotebookPlot([{ x: [1,2,3], y: [2,3,4] }], { title: 'test' });
+        const plot = new Plot.createPlot([{ x: [1,2,3], y: [2,3,4] }], { title: 'test' });
+
+        const scriptSource = require.resolve('plotly.js/dist/plotly.min.js');
 
         const expected = [
             '<div class=\'plotly-plot\'>',
@@ -21,13 +23,13 @@ describe('The render function', function() {
                     '}else if(!window.require){',
                         'var head = document.head || document.getElementsByTagName(\'head\')[0];',
                         'var s = document.createElement(\'script\');',
-                        's.src = \'https://cdn.plot.ly/plotly-latest.min.js\';',
+                        's.src = \'' + scriptSource + '\';',
                         's.type = \'text/javascript\';',
                         's.async = false;',
                         's.onreadystatechange = s.onload = plot;',
                         'head.appendChild(s);',
                     '}else{',
-                        'require(\'https://cdn.plot.ly/plotly-latest.min.js\', function(Plotly){',
+                        'require([\'' + scriptSource + '\'], function(Plotly){',
                             'window.Plotly = Plotly;',
                             'plot();',
                         '});',

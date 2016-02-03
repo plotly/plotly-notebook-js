@@ -1,11 +1,11 @@
-const NotebookPlot = require('../build');
+const Plot = require('../build');
 
 describe('The deleteTraces function', function() {
 
     var plot;
 
     beforeEach(function(){
-        plot = new NotebookPlot([
+        plot = new Plot.createPlot([
             { x: [1,2,3], y: [3,4,5] },
             { x: [1,2,3], y: [8,5,6] },
             { x: [1,2,3], y: [1,3,4] }

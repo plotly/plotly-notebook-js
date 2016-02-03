@@ -1,8 +1,8 @@
-const NotebookPlot = require('../build');
+const Plot = require('../build');
 
 describe('The addTraces function', function() {
 
-    var plot = new NotebookPlot();
+    var plot = new Plot.createPlot();
 
     afterEach(function() {
         plot.data = [];
@@ -54,9 +54,9 @@ describe('The addTraces function', function() {
     });
 
     it('should error with different length traces and indices', function() {
-       expect(function() {
-          plot.addTraces([{},{}], [0]);
-       }).toThrowError('Traces and indices must be the same length!');
+        expect(function() {
+            plot.addTraces([{},{}], [0]);
+        }).toThrowError('Traces and indices must be the same length!');
     });
 
     it('should work with an array of indices', function() {

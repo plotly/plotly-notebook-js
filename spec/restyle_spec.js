@@ -1,4 +1,4 @@
-var NotebookPlot = require('../build');
+var Plot = require('../build');
 
 describe('The restyle function', function() {
 
@@ -8,7 +8,7 @@ describe('The restyle function', function() {
           { x: [1,2,3], y: [1,5,3] }
         ],
         layout = {},
-        plot = new NotebookPlot(data, layout);
+        plot = new Plot.createPlot(data, layout);
 
     it('should update all traces when only one argument', function() {
         plot.restyle({ test: 'added', x: 'changed' });
