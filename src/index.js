@@ -100,16 +100,19 @@ NotebookPlot.prototype.deleteTraces = function(indices) {
 };
 
 
-NotebookPlot.prototype.render = function() {
+NotebookPlot.prototype.render = function(separate=false) {
+    let uuid = new Date().getTime();
+    if(separate) {
+        uuid +=Math.floor(Math.random()*10_000_000)   
+    }
 
-    const timestamp = new Date().getTime();
 
     const output = [
         '<div class=\'plotly-plot\'>',
-            '<div id=\'notebook-plot-' + timestamp + '\'></div>',
+            '<div id=\'notebook-plot-' + uuid + '\'></div>',
             '<script>',
                 'function plot(){',
-                    'Plotly.plot(\'notebook-plot-' + timestamp + '\',',
+                    'Plotly.plot(\'notebook-plot-' + uuid + '\',',
                     JSON.stringify(this.data),
                     ',',
                     JSON.stringify(this.layout),
